@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Didik Prabowo</title>
+    <link>/</link>
+    <description>Recent content on Didik Prabowo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Didik Prabowo</copyright><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Category</title>
+      <link>/category/</link>
+      <pubDate>Sun, 17 Dec 2017 19:51:02 +0800</pubDate>
+      
+      <guid>/category/</guid>
+      <description>Programming  Golang PHP Laravel  Database  MySQL Postgress  </description>
+    </item>
+    
+  </channel>
+</rss>
