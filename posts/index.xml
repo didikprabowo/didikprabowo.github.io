@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Didik Prabowo</title>
-    <link>/</link>
-    <description>Recent content on Didik Prabowo</description>
+    <title>Posts on Didik Prabowo</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on Didik Prabowo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>You</copyright>
-    <lastBuildDate>Fri, 07 May 2021 11:58:12 +0700</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 May 2021 11:58:12 +0700</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install Postgres</title>
       <link>/posts/install-postgres/</link>
@@ -26,15 +26,6 @@
       
       <guid>/posts/kubernetes-cs/</guid>
       <description>References  https://kubernetes.io/docs/reference/kubectl/cheatsheet/  Preinstall  Kube Virtualbox Kubectl  Description and tutorial Node Tutorial  Get node : kubectl get mode Get detail node : kubectl describe node {node_name}  Pod  Small unit at a cluster. Have more than one the container  Tutorial  Get pod : kubectl get pod | -o wide Get detail pod : kubectl describe pod {pod_name} Create Pod : kubectl create -f {name_file_pod.</description>
-    </item>
-    
-    <item>
-      <title>References</title>
-      <link>/references/</link>
-      <pubDate>Sun, 17 Dec 2017 19:51:02 +0800</pubDate>
-      
-      <guid>/references/</guid>
-      <description>Programming  Golang PHP Laravel  Database  MySQL Postgres  Devops  Docker  </description>
     </item>
     
   </channel>

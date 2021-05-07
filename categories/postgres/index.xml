@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>postgres on Didik Prabowo</title>
+    <link>/categories/postgres/</link>
+    <description>Recent content in postgres on Didik Prabowo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>You</copyright>
+    <lastBuildDate>Fri, 07 May 2021 11:58:12 +0700</lastBuildDate><atom:link href="/categories/postgres/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Postgres</title>
+      <link>/posts/install-postgres/</link>
+      <pubDate>Fri, 07 May 2021 11:58:12 +0700</pubDate>
+      
+      <guid>/posts/install-postgres/</guid>
+      <description>Install use docker  Create file docker compose docker-compose.yml  version: &amp;#34;3&amp;#34; services: postgres: image: postgres ports: - &amp;#34;5432:5432&amp;#34; volumes: - ./dbdata:/var/lib/postgresql/data environment: - POSTGRES_PASSWORD=rahas1a network_mode: &amp;#34;bridge&amp;#34;  Create folder config and create file postgresql.conf, copy and past file from https://github.com/postgres/postgres/blob/master/src/backend/utils/misc/postgresql.conf.sample
+  docker-compose up
+  </description>
+    </item>
+    
+  </channel>
+</rss>
