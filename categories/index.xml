@@ -7,18 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>You</copyright>
-    <lastBuildDate>Fri, 07 May 2021 11:58:12 +0700</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>docker</title>
-      <link>/categories/docker/</link>
-      <pubDate>Fri, 07 May 2021 11:58:12 +0700</pubDate>
+      <title>Devops</title>
+      <link>/categories/devops/</link>
+      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>/categories/docker/</guid>
+      <guid>/categories/devops/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>kubernetes</title>
+      <title>Devops Config</title>
+      <link>/categories/devops-config/</link>
+      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/devops-config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>/categories/git/</link>
+      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
       <link>/categories/kubernetes/</link>
       <pubDate>Fri, 07 May 2021 11:58:12 +0700</pubDate>
       
@@ -27,11 +45,20 @@
     </item>
     
     <item>
-      <title>postgres</title>
-      <link>/categories/postgres/</link>
+      <title>Performance Test</title>
+      <link>/categories/performance-test/</link>
       <pubDate>Fri, 07 May 2021 11:58:12 +0700</pubDate>
       
-      <guid>/categories/postgres/</guid>
+      <guid>/categories/performance-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SEO</title>
+      <link>/categories/seo/</link>
+      <pubDate>Fri, 07 May 2021 11:58:12 +0700</pubDate>
+      
+      <guid>/categories/seo/</guid>
       <description></description>
     </item>
     

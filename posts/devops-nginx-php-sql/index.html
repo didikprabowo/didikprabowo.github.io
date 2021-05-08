@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Install Maria DB, Nginx and PHP, study case : install wordpres | Didik Prabowo</title>
+  <meta name="description" content="Welcome to didik prabowo. Just my note, Have fun.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Install Maria DB, Nginx and PHP, study case : install wordpres" />
+<meta property="og:description" content="Update 1 2  apt update apt upgrade -y   Install Nginx 1 2  $ apt install nginx -y $ systemctl status nginx   Install PHP 1 2 3 4 5  $ apt install software-properties-common -y $ add-apt-repository ppa:ondrej/php $ apt install php7.4-fpm php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring $ php7.4-soap php7.4-zip php7.4-bcmath -y $ sudo apt-get install php7.3 php7.3-cli php7.3-common php7." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/devops-nginx-php-sql/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-08T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-08T00:00:00&#43;00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Install Maria DB, Nginx and PHP, study case : install wordpres"/>
+<meta name="twitter:description" content="Update 1 2  apt update apt upgrade -y   Install Nginx 1 2  $ apt install nginx -y $ systemctl status nginx   Install PHP 1 2 3 4 5  $ apt install software-properties-common -y $ add-apt-repository ppa:ondrej/php $ apt install php7.4-fpm php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring $ php7.4-soap php7.4-zip php7.4-bcmath -y $ sudo apt-get install php7.3 php7.3-cli php7.3-common php7."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="/css/style-white.css">
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/references">References</a></li>
+         
+        <li><a href="https://github.com/didikprabowo">Github</a></li>
+         
+        <li><a href=""></a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" /posts/kubernetes/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="/posts/git/">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=%2fposts%2fdevops-nginx-php-sql%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=%2fposts%2fdevops-nginx-php-sql%2f&text=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=%2fposts%2fdevops-nginx-php-sql%2f&title=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=%2fposts%2fdevops-nginx-php-sql%2f&is_video=false&description=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres&body=Check out this article: %2fposts%2fdevops-nginx-php-sql%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=%2fposts%2fdevops-nginx-php-sql%2f&title=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=%2fposts%2fdevops-nginx-php-sql%2f&title=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=%2fposts%2fdevops-nginx-php-sql%2f&name=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres&description=Update%201%202%20%20apt%20update%20apt%20upgrade%20-y%20%20%20Install%20Nginx%201%202%20%20%24%20apt%20install%20nginx%20-y%20%24%20systemctl%20status%20nginx%20%20%20Install%20PHP%201%202%203%204%205%20%20%24%20apt%20install%20software-properties-common%20-y%20%24%20add-apt-repository%20ppa%3aondrej%2fphp%20%24%20apt%20install%20php7.4-fpm%20php7.4-common%20php7.4-mysql%20php7.4-xml%20php7.4-xmlrpc%20php7.4-curl%20php7.4-gd%20php7.4-imagick%20php7.4-cli%20php7.4-dev%20php7.4-imap%20php7.4-mbstring%20%24%20php7.4-soap%20php7.4-zip%20php7.4-bcmath%20-y%20%24%20sudo%20apt-get%20install%20php7.3%20php7.3-cli%20php7.3-common%20php7.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=%2fposts%2fdevops-nginx-php-sql%2f&t=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ol>
+    <li><a href="#update">Update</a></li>
+    <li><a href="#install-nginx">Install Nginx</a></li>
+    <li><a href="#install-php">Install PHP</a></li>
+    <li><a href="#create-source-code">Create source code</a></li>
+    <li><a href="#configure-nginx">Configure nginx</a></li>
+    <li><a href="#install-maria-db-and-add-previlage">Install Maria DB and add previlage</a></li>
+  </ol>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Install Maria DB, Nginx and PHP, study case : install wordpres
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-05-08 00:00:00 &#43;0000 UTC" itemprop="datePublished">2021-05-08</time>
+          
+        </div>
+        
+        
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/categories/devops">Devops</a>
+            
+        </div>
+        
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <h2 id="update">Update</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash">apt update
+apt upgrade -y
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="install-nginx">Install Nginx</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash">$ apt install nginx -y
+$ systemctl status nginx
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="install-php">Install PHP</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash">$ apt install software-properties-common -y
+$ add-apt-repository ppa:ondrej/php
+$ apt install php7.4-fpm php7.4-common php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-curl php7.4-gd php7.4-imagick php7.4-cli php7.4-dev php7.4-imap php7.4-mbstring $ php7.4-soap php7.4-zip php7.4-bcmath -y
+$ sudo apt-get install php7.3 php7.3-cli php7.3-common php7.3-json php7.3-opcache php7.3-mysql php7.3-mbstring php7.3-zip php7.3-fpm php7.3-intl 
+$ systemctl status php7.4-fpm
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="create-source-code">Create source code</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash">$ wget -c https://wordpress.org/latest.tar.gz -O wordpress.tar.gz
+$ tar xzvf wordpress.tar.gz
+$ mv wordpress /var/www/defnex.com
+$ chmod -R <span style="color:#bd93f9">755</span> /var/www/defnex.com
+$ chown -R www-data:www-data /var/www/defnex.com
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="configure-nginx">Configure nginx</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash"><span style="color:#8be9fd;font-style:italic">cd</span> /etc/nginx/conf.d
+nano defnex.com.conf
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>/etc/nginx/conf.d</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash">server <span style="color:#ff79c6">{</span>
+    listen 80;
+    server_name www.defnex.com defnex.com;
+    root /var/www/defnex.com;
+    index index.php index.html index.htm;
+
+    location / <span style="color:#ff79c6">{</span>
+      try_files <span style="color:#8be9fd;font-style:italic">$uri</span> <span style="color:#8be9fd;font-style:italic">$uri</span>/ /index.php?<span style="color:#8be9fd;font-style:italic">$query_string</span>;
+    <span style="color:#ff79c6">}</span>
+
+    location ~ <span style="color:#f1fa8c">\.</span>php$ <span style="color:#ff79c6">{</span>
+      try_files <span style="color:#8be9fd;font-style:italic">$fastcgi_script_name</span> <span style="color:#ff79c6">=</span>404;
+      include fastcgi_params;
+      fastcgi_pass    unix:/run/php/php7.4-fpm.sock;
+      fastcgi_index   index.php;
+      fastcgi_param DOCUMENT_ROOT    <span style="color:#8be9fd;font-style:italic">$realpath_root</span>;
+      fastcgi_param SCRIPT_FILENAME <span style="color:#8be9fd;font-style:italic">$realpath_root$fastcgi_script_name</span>; 
+    <span style="color:#ff79c6">}</span>
+
+    access_log /var/log/nginx/defnex.com_access.log;
+    error_log /var/log/nginx/defnex.com_error.log;
+<span style="color:#ff79c6">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>and then restart nginx</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash">nginx -t
+systemctl restart nginx
+systemctl status nginx
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="install-maria-db-and-add-previlage">Install Maria DB and add previlage</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash">$ apt install mariadb-server -y
+$ systemctl status mariadb
+$ mysql_secure_installation
+
+$ mysql -u root -p
+$ CREATE DATABASE wordpress;
+$ CREATE USER <span style="color:#f1fa8c">&#39;wordpress&#39;</span>@<span style="color:#f1fa8c">&#39;localhost&#39;</span> IDENTIFIED BY <span style="color:#f1fa8c">&#39;rahasia&#39;</span>;
+$ GRANT ALL PRIVILEGES ON wordpress.* TO <span style="color:#f1fa8c">&#39;wordpress&#39;</span>@<span style="color:#f1fa8c">&#39;localhost&#39;</span>;
+$ FLUSH PRIVILEGES;
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/references">References</a></li>
+         
+          <li><a href="https://github.com/didikprabowo">Github</a></li>
+         
+          <li><a href=""></a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ol>
+    <li><a href="#update">Update</a></li>
+    <li><a href="#install-nginx">Install Nginx</a></li>
+    <li><a href="#install-php">Install PHP</a></li>
+    <li><a href="#create-source-code">Create source code</a></li>
+    <li><a href="#configure-nginx">Configure nginx</a></li>
+    <li><a href="#install-maria-db-and-add-previlage">Install Maria DB and add previlage</a></li>
+  </ol>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=%2fposts%2fdevops-nginx-php-sql%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=%2fposts%2fdevops-nginx-php-sql%2f&text=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=%2fposts%2fdevops-nginx-php-sql%2f&title=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=%2fposts%2fdevops-nginx-php-sql%2f&is_video=false&description=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres&body=Check out this article: %2fposts%2fdevops-nginx-php-sql%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=%2fposts%2fdevops-nginx-php-sql%2f&title=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=%2fposts%2fdevops-nginx-php-sql%2f&title=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=%2fposts%2fdevops-nginx-php-sql%2f&name=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres&description=Update%201%202%20%20apt%20update%20apt%20upgrade%20-y%20%20%20Install%20Nginx%201%202%20%20%24%20apt%20install%20nginx%20-y%20%24%20systemctl%20status%20nginx%20%20%20Install%20PHP%201%202%203%204%205%20%20%24%20apt%20install%20software-properties-common%20-y%20%24%20add-apt-repository%20ppa%3aondrej%2fphp%20%24%20apt%20install%20php7.4-fpm%20php7.4-common%20php7.4-mysql%20php7.4-xml%20php7.4-xmlrpc%20php7.4-curl%20php7.4-gd%20php7.4-imagick%20php7.4-cli%20php7.4-dev%20php7.4-imap%20php7.4-mbstring%20%24%20php7.4-soap%20php7.4-zip%20php7.4-bcmath%20-y%20%24%20sudo%20apt-get%20install%20php7.3%20php7.3-cli%20php7.3-common%20php7.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=%2fposts%2fdevops-nginx-php-sql%2f&t=Install%20Maria%20DB%2c%20Nginx%20and%20PHP%2c%20study%20case%20%3a%20install%20wordpres">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  You 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/references">References</a></li>
+         
+        <li><a href="https://github.com/didikprabowo">Github</a></li>
+         
+        <li><a href=""></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+
+
+</html>
